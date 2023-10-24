@@ -115,6 +115,15 @@
               "RapidAPI",
               "Blobr"
             ]
+          },
+          {
+            "name": "cf",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "sk",
+            "x-ms-visibility": "internal",
+            "description": "Traffic blocked if not used"
           }
         ]
       }
