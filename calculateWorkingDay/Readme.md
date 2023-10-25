@@ -12,6 +12,13 @@ More information can be found on [our website](https://mightora.io/calculate-wor
 * __Is Today A Working Day__ - This action uses multiple variables to determine if today/date supplied is a working day for you. 
 * __Date In X Working Days__ - This action uses multiple variables to determine what the working day will be in X working days’ time.
 
+## Parameters that can be used
+* __date__ - The date in question you wish to centre your request around. This is the input date in YYYY-MM-DD format. e.g. 2022-12-23.
+* __working_days__ - This parameter expects a comma-separated list of working days, where Monday is 1, Tuesday is 2, and so on. In the default, we're using all weekdays from Monday to Friday, so the value is '1,2,3,4,5'.
+* __x_working_days__ - Find working day in X days e.g. 4
+* __country__ - Currently, only the United Kingdom is supported. Values can be england-and-wales, scotland, northern-ireland. Used to filter out bank holidays.
+* __non_working_days__ - A custom list of non working days, this could be a list of days where service is not available. In a string as a list, format YYYY-MM-DD,YYYY-MM-DD e.g. 2022-12-28,2022-12-29,2022-12-30.
+
 ## Prerequisites
 To use this connector you will need the following to proceed:
 * A Microsoft Power Apps or Power Automate plan
