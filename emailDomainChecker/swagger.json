@@ -141,7 +141,7 @@
   },
   "security": [
     {
-      "API Key": []
+      "api_key": []
     }
   ],
   "tags": []
