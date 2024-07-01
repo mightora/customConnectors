@@ -22,16 +22,6 @@ To use this connector you will need the following to proceed:
 7. Paste the value into the *API Key* field 
 8. Choose *RapidAPI* as your Endpoint
 
-## How to get credentials from Blobr
-1. Go to [Blobr](https://mightora.io/blobr-catalog)
-2. Sign up for an account
-3. Click on *Try for free*
-4. Enter in your details, the trial is free
-5. Subscribe to the plan
-6. Then click on Authentication and copy the value from *Primary API Key*
-7. Paste the value into the *API Key* field 
-8. Choose *Blobr* as your Endpoint
-
 ## Supported actions
 You can use this connector in the following cases:
 * 'Check Domain':  Check to see if a domain is valid to receive emails.
