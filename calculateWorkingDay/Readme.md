@@ -34,15 +34,6 @@ Credentials can be obtained from one of our two billing partners, either from [R
 6. Then click on Endpoints and copy the value from *X-RapidAPI-Key*
 7. Paste the value into the *API Key* field 
 8. Choose *RapidAPI* as your Endpoint
-### How to get credentials from Blobr
-1. Go to [Blobr](https://mightora.io/blobr-catalog)
-2. Sign up for an account
-3. Click on *Try for free*
-4. Enter in your details, the trial is free
-5. Subscribe to the plan
-6. Then click on Authentication and copy the value from *Primary API Key*
-7. Paste the value into the *API Key* field 
-8. Choose *Blobr* as your Endpoint
 
 ## Getting Started
 You can use this connector in the following cases:
