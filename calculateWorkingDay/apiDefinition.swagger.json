@@ -133,9 +133,6 @@
             "$ref": "#/parameters/cf"
           },
           {
-            "$ref": "#/parameters/endpoint"
-          },
-          {
             "$ref": "#/parameters/date"
           },
           {
@@ -151,7 +148,7 @@
             "$ref": "#/parameters/country"
           }
         ],
-        "description": "Performs a combination of all of the endpoints in one response. For more information please see https://mightora.io/calculate-working-day"
+        "description": "Performs a combination of all of the s in one response. For more information please see https://mightora.io/calculate-working-day"
       }
     },
     "/basicNextWorkingDay/": {
@@ -196,9 +193,6 @@
         "parameters": [
           {
             "$ref": "#/parameters/cf"
-          },
-          {
-            "$ref": "#/parameters/endpoint"
           },
           {
             "$ref": "#/parameters/date"
@@ -275,9 +269,6 @@
         "parameters": [
           {
             "$ref": "#/parameters/cf"
-          },
-          {
-            "$ref": "#/parameters/endpoint"
           },
           {
             "$ref": "#/parameters/date"
@@ -371,9 +362,6 @@
             "$ref": "#/parameters/cf"
           },
           {
-            "$ref": "#/parameters/endpoint"
-          },
-          {
             "$ref": "#/parameters/date"
           },
           {
@@ -449,9 +437,6 @@
         "parameters": [
           {
             "$ref": "#/parameters/cf"
-          },
-          {
-            "$ref": "#/parameters/endpoint"
           },
           {
             "$ref": "#/parameters/date"
@@ -540,9 +525,6 @@
             "$ref": "#/parameters/cf"
           },
           {
-            "$ref": "#/parameters/endpoint"
-          },
-          {
             "$ref": "#/parameters/date"
           },
           {
@@ -559,20 +541,6 @@
   },
   "definitions": {},
   "parameters": {
-      "endpoint": {
-        "name": "endpoint",
-        "in": "query",
-        "required": true,
-        "type": "string",
-        "default": "RapidAPI",
-        "x-ms-summary": "API Endpoint Host",
-        "x-ms-visibility": "important",
-        "description": "The API Endpoint Host you wish to use",
-        "enum": [
-          "RapidAPI",
-          "Blobr"
-        ]
-      },
       "cf": {
         "name": "cf",
         "in": "header",
