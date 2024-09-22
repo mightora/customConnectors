@@ -103,20 +103,6 @@
             "x-ms-visibility": "important"
           },
           {
-            "name": "endpoint",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "default": "RapidAPI",
-            "x-ms-summary": "API Endpoint Host",
-            "x-ms-visibility": "important",
-            "description": "The API Endpoint Host you wish to use",
-            "enum": [
-              "RapidAPI",
-              "Blobr"
-            ]
-          },
-          {
             "name": "cf",
             "in": "header",
             "required": true,
