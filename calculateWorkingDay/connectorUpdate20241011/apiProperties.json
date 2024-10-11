@@ -1,0 +1,10 @@
+{
+    "properties": {
+      "iconBrandColor": "#dddddd",
+      "capabilities": [
+        "actions"
+      ],
+      "publisher": "Mightora.io",
+      "stackOwner": "Mightora.io"
+    }
+  }

@@ -268,10 +268,10 @@ paths:
                 title: Message from developer
                 x-ms-summary: Message from developer
       summary: Date Difference Calculator
-      operationId: dateDifferenceCalculator
+      operationId: DateDifferenceCalculator
       description: >-
         This action uses multiple variables to determine what your working days
-        are between two days. 
+        are between two dates.
       parameters:
         - $ref: '#/parameters/cf'
         - $ref: '#/parameters/nonWorkingDays'
@@ -546,6 +546,7 @@ parameters:
       - england-and-wales
       - scotland
       - northern-ireland
+      - none
 responses: {}
 tags: []
 securityDefinitions: {}
