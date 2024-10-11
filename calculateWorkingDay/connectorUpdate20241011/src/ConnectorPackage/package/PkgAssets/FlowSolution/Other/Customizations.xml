@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.24093.182" OrganizationSchemaType="Standard" CRMServerServiceabilityVersion="9.2.24093.00182">
+  <Entities />
+  <Roles />
+  <Workflows />
+  <FieldSecurityProfiles />
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings />
+  <optionsets />
+  <CustomControls />
+  <EntityDataProviders />
+  <Connectors />
+  <connectionreferences>
+    <connectionreference connectionreferencelogicalname="mightora_sharedcalculate20working20day5fe07b0f04a8b0d4c35f8d99aea54e2a1a3_a3eba">
+      <connectionreferencedisplayname>Calculate Working Day CalculateWorkingDayUpdate20241011-a3eba</connectionreferencedisplayname>
+      <connectorid>/providers/Microsoft.PowerApps/apis/shared_calculate-20working-20day-5fe07b0f04a8b0d4c3-5f8d99aea54e2a1a34</connectorid>
+      <customconnectorid>
+        <connectorid>89afd14b-32ca-4f20-a957-7c3280883e08</connectorid>
+      </customconnectorid>
+      <iscustomizable>1</iscustomizable>
+      <statecode>0</statecode>
+      <statuscode>1</statuscode>
+    </connectionreference>
+  </connectionreferences>
+  <Languages>
+    <Language>1033</Language>
+    <Language>3082</Language>
+  </Languages>
+</ImportExportXml>
