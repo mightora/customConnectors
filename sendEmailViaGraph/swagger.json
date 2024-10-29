@@ -1,0 +1,89 @@
+swagger: '2.0'
+info:
+  title: Graph Mail API
+  description: Custom connector to send emails using Microsoft Graph API
+  version: '1.0'
+host: graph.microsoft.com
+basePath: /v1.0
+schemes:
+  - https
+paths:
+  /users/{user-email}/sendMail:
+    post:
+      summary: Send an email
+      description: Sends an email from a specified user account
+      operationId: sendMail
+      parameters:
+        - name: user-email
+          in: path
+          required: true
+          type: string
+          description: The email address of the user sending the email
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              message:
+                type: object
+                properties:
+                  subject:
+                    type: string
+                  body:
+                    type: object
+                    properties:
+                      contentType:
+                        type: string
+                        enum:
+                          - Text
+                          - HTML
+                      content:
+                        type: string
+                  toRecipients:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        emailAddress:
+                          type: object
+                          properties:
+                            address:
+                              type: string
+              saveToSentItems:
+                type: boolean
+      responses:
+        '202':
+          description: Accepted
+securityDefinitions:
+  oauth2-auth:
+    type: oauth2
+    flow: accessCode
+    tokenUrl: https://login.windows.net/common/oauth2/authorize
+    scopes:
+      Mail.Send: Mail.Send
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+  oAuthClientCredentials:
+    type: oauth2
+    flow: application
+    tokenUrl: https://login.windows.net/common/oauth2/authorize
+    scopes:
+      Mail.Send: Mail.Send
+  certOauth:
+    type: oauth2
+    flow: application
+    tokenUrl: https://login.windows.net/common/oauth2/authorize
+    scopes:
+      Mail.Send: Mail.Send
+security:
+  - oauth2-auth:
+      - Mail.Send
+  - oAuthClientCredentials:
+      - Mail.Send
+  - certOauth:
+      - Mail.Send
