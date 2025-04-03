@@ -1,0 +1,204 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_calculate-20working-20day-5fe07b0f04a8b0d4c3-5f8d99aea54e2a1a34": {
+        "api": {
+          "name": "shared_calculate-20working-20day-5fe07b0f04a8b0d4c3-5f8d99aea54e2a1a34",
+          "logicalName": "mightora_calculate-20working-20day"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "mightora_sharedcalculate20working20day5fe07b0f04a8b0d4c35f8d99aea54e2a1a3_a3eba"
+        },
+        "runtimeSource": "invoker"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "3b501eb3-ae01-4a7d-be24-2f15c57dcb2d"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Basic_Next_Working_Day": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "1c87e217-daa5-4004-a1a8-36494148596d"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "date": "2022-12-23"
+            },
+            "host": {
+              "apiId": "",
+              "operationId": "BasicNextWorkingDay",
+              "connectionName": "shared_calculate-20working-20day-5fe07b0f04a8b0d4c3-5f8d99aea54e2a1a34"
+            }
+          }
+        },
+        "Combination_of_all_Calculate_Working_Day_Endpoints": {
+          "runAfter": {
+            "Basic_Next_Working_Day": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0dfcef61-451a-4a9b-aa07-0d185739567f"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "date": "2022-12-23",
+              "working_days": "1,2",
+              "x_working_days": 4,
+              "country": "scotland"
+            },
+            "host": {
+              "apiId": "",
+              "operationId": "Combined",
+              "connectionName": "shared_calculate-20working-20day-5fe07b0f04a8b0d4c3-5f8d99aea54e2a1a34"
+            }
+          }
+        },
+        "Date_Difference_Calculator": {
+          "runAfter": {
+            "Combination_of_all_Calculate_Working_Day_Endpoints": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8ebe7402-b0ce-4ac0-af92-d53ae4c1edfa"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "working_days": "1",
+              "start_date": "2022-12-23",
+              "end_date": "2022-12-30"
+            },
+            "host": {
+              "apiId": "",
+              "operationId": "dateDifferenceCalculator",
+              "connectionName": "shared_calculate-20working-20day-5fe07b0f04a8b0d4c3-5f8d99aea54e2a1a34"
+            }
+          }
+        },
+        "Date_In_X_Working_Days": {
+          "runAfter": {
+            "Date_Difference_Calculator": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cee241b2-3df3-4aca-9511-d8ff34b74bcc"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "date": "2022-12-23",
+              "working_days": "1",
+              "x_working_days": 4
+            },
+            "host": {
+              "apiId": "",
+              "operationId": "DateInXWorkingDays",
+              "connectionName": "shared_calculate-20working-20day-5fe07b0f04a8b0d4c3-5f8d99aea54e2a1a34"
+            }
+          }
+        },
+        "First_And_Last_Working_Day_Of_Month": {
+          "runAfter": {
+            "Date_In_X_Working_Days": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2d14966f-cd2b-4462-beb6-5c2ff0b9aef1"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "date": "2022-12-23",
+              "working_days": "1"
+            },
+            "host": {
+              "apiId": "",
+              "operationId": "FirstAndLastWorkingDayOfMonth",
+              "connectionName": "shared_calculate-20working-20day-5fe07b0f04a8b0d4c3-5f8d99aea54e2a1a34"
+            }
+          }
+        },
+        "Is_Today_A_Working_Day": {
+          "runAfter": {
+            "First_And_Last_Working_Day_Of_Month": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cb031d8e-9f93-40ad-a71d-36616436b20e"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "date": "2022-12-23",
+              "working_days": "1"
+            },
+            "host": {
+              "apiId": "",
+              "operationId": "IsTodayAWorkingDay",
+              "connectionName": "shared_calculate-20working-20day-5fe07b0f04a8b0d4c3-5f8d99aea54e2a1a34"
+            }
+          }
+        },
+        "Next_Working_Day": {
+          "runAfter": {
+            "Is_Today_A_Working_Day": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3b0d8667-5e2d-400f-9849-77cdea76e546"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "date": "2022-12-23",
+              "working_days": "1",
+              "x_working_days": 4
+            },
+            "host": {
+              "apiId": "",
+              "operationId": "NextWorkingDay",
+              "connectionName": "shared_calculate-20working-20day-5fe07b0f04a8b0d4c3-5f8d99aea54e2a1a34"
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -636,6 +636,37 @@
         "description": "This action uses multiple variables to determine what the working day will be in X working daysâ€™ time.",
         "operationId": "DateInXWorkingDays"
       }
+    }, 
+    "/bank-holidays.json": {
+      "get": {
+          "responses": {
+              "default": {
+                  "description": "default",
+                  "schema": {
+                      "type": "object",
+                      "properties": {
+                          "countrys": {
+                              "type": "array",
+                              "items": {
+                                  "type": "object",
+                                  "properties": {
+                                      "country": {
+                                          "type": "string",
+                                          "description": "country"
+                                      }
+                                  }
+                              },
+                              "description": "countrys"
+                          }
+                      }
+                  }
+              }
+          },
+          "summary": "Available Country",
+          "description": "A list of Available Countries where we have up to date bank holiday information.",
+          "operationId": "Country",
+          "parameters": []
+      }
     }
   },
   "definitions": {},
@@ -716,13 +747,13 @@
       "default": "scotland",
       "x-ms-summary": "Filter bank holidays for Country",
       "x-ms-visibility": "important",
-      "description": "Currently only the United Kindom is supported",
-      "enum": [
-        "england-and-wales",
-        "scotland",
-        "northern-ireland",
-        "none"
-      ]
+      "description": "Choose which bank holidays you would like to filter",
+      "x-ms-dynamic-values": {
+          "operationId": "Country",
+          "value-path": "country",
+          "value-collection": "countrys",
+          "value-title": "country"
+      }
     }
   },
   "responses": {},
